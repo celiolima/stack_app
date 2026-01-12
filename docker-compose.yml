@@ -7,9 +7,9 @@ services:
       dockerfile: Dockerfile
     container_name: php-crud
     restart: always
-    volumes:
-      # Corrigido o caminho interno: o Apache busca em /var/www/html
-      - /home/dockesVol/steckApp/app:/var/www/html
+    #volumes:
+    #  # Corrigido o caminho interno: o Apache busca em /var/www/html
+    #  - /home/dockesVol/steckApp/app:/var/www/html
     networks:
       - proxy_app
     environment:
@@ -64,7 +64,7 @@ services:
       - "traefik.http.routers.pma.entrypoints=websecure"
       - "traefik.http.routers.pma.tls=true"
       - "traefik.http.routers.pma.tls.certresolver=le"
-      - "traefik.http.routers.pma.middlewares=auth"
+      #- "traefik.http.routers.pma.middlewares=auth"
 
 networks:
   proxy_app:
