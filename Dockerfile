@@ -2,7 +2,7 @@
 FROM php:7.4-apache
 
 # Copiar seu php.ini
-COPY ./docker/php/php.ini /usr/local/etc/php/php.ini
+#COPY ./docker/php/php.ini /usr/local/etc/php/php.ini
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
