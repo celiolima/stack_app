@@ -1,7 +1,10 @@
 services:
   # Aplicação PHP 7.4
   php-app:
-    image: php:7.4-apache
+    #image: php:7.4-apache
+    build:      
+      context: .
+      dockerfile: Dockerfile
     container_name: php-crud
     restart: always
     volumes:
@@ -25,9 +28,8 @@ services:
       # A imagem php:7.4-apache roda internamente na porta 80
       - "traefik.http.services.phpapp.loadbalancer.server.port=80"
       
-    # Instala o driver PDO MySQL que não vem por padrão na imagem oficial
-    command: >
-      sh -c "docker-php-ext-install pdo pdo_mysql && apache2-foreground"
+    #command: >
+    #  sh -c "docker-php-ext-install pdo pdo_mysql && apache2-foreground"
       
 
   # Banco de Dados MySQL
