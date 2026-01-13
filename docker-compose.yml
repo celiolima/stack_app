@@ -7,9 +7,9 @@ services:
       dockerfile: Dockerfile
     container_name: php-crud
     restart: always
-    #volumes:
-    #  # Corrigido o caminho interno: o Apache busca em /var/www/html
-    #  - /home/dockesVol/steckApp/app:/var/www/html
+    volumes:
+      # Corrigido o caminho interno: o Apache busca em /var/www/html
+      - "stackVol-app:/var/www/html"
     networks:
       - proxy_app
     environment:
@@ -71,4 +71,6 @@ networks:
     external: true
 volumes:
   mysql_data:
+    driver: local
+  stackVol-app:
     driver: local
