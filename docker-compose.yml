@@ -71,6 +71,6 @@ networks:
     external: true
 volumes:
   mysql_data:
-    driver: local
+    external: true
   stackVol-app:
-    driver: local
+    external: true
